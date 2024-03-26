@@ -11,6 +11,9 @@ urlpatterns = [
     path('news2', news2, name="news2"),         #news2 (bile uprostred) je nazev fce, ktera se spousti
     path('news2/super_news', super_news, name="supernews"),     #news2/super_news -> nazev stranky
     path('current_day/', current_day_of_week, name='current_day'),
+    path('members', members, name='members'),
+    path('phones', members, name='phones'),
+    path('details/<int.id>', details, name='details')
     # path('', include('members.urls')),
     # path('admin/', admin.site.urls),
 ]

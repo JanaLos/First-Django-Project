@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>Phones</h1>
+
+<ul>
+  {% for p in phones %}
+    <li>{{ p.firstname }} {{ p.lastname }} {{ p.mobil_phone }} {{ p.email }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+<!-- vkladame content block a extends master.html, jeste se dodela views a urls-->
+

@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>Members</h1>
+
+<ul>
+  {% for member in mymembers %}
+  <a href="details/{{ member.id}} "> </a>
+<!--    <li>{{ member.firstname }} {{ member.lastname }}</li>-->
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+<!-- vkladame content block a extends master.html, jeste se dodela views a urls-->
+

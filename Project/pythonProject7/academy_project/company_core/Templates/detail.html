@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>{ mymember.firstname} {mymember.lastname}</h1>      DODELAT!!!!
+
+<ul>
+  {% for p in phones %}
+    <li>{{ p.firstname }} {{ p.lastname }} {{ p.mobil_phone }} {{ p.email }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
