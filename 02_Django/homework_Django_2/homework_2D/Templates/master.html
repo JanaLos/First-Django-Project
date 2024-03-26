@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "head.html" %}     <!--vlozime sablonu z templatu header-->
+
+
+<body>
+
+{% include "header.html" %}     <!--include zkopiruje kod z header.html a vlozi ho sem-->
+
+{% block content %}             <!-- oznaceni vnitrni/prostredni casti body (body obsahuje header, prostredek i footer)-->
+{% endblock %}
+
+
+{% include "footer.html" %}         <!--paticka-->
+
+</body>
+</html>

@@ -40,12 +40,12 @@ def Hemingway_custom_book(request, name_of_book):
 #   template = loader.get_template('Hemingway_1940.html')
 #   return HttpResponse(template.render())
 
-def custom_view_year(request):
-  # writers = request.GET.get('writers')        > obecne i pro Shakespeara
-  year = request.GET.get('year')
+  def custom_view_year(request):
+    # writers = request.GET.get('writers')        > obecne i pro Shakespeara
+    year = request.GET.get('year')
 
-  template = loader.get_template(f'Hemingway_{year}.html')      #(f'{writers}_{year}.html') -> obecne i pro Shakespeara
-  return HttpResponse(template.render())
+    template = loader.get_template(f'Hemingway_{year}.html')      #(f'{writers}_{year}.html') -> obecne i pro Shakespeara
+    return HttpResponse(template.render())
 
 
 def best_books(request):
