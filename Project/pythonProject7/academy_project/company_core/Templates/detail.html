@@ -1,12 +1,10 @@
 {% extends "master.html" %}
 
+
 {% block content %}
-<h1>{ mymember.firstname} {mymember.lastname}</h1>      DODELAT!!!!
+<h1>{{ mymember.firstname }} {{ mymember.lastname }}</h1>
 
-<ul>
-  {% for p in phones %}
-    <li>{{ p.firstname }} {{ p.lastname }} {{ p.mobil_phone }} {{ p.email }}</li>
-  {% endfor %}
-</ul>
+<h2> {{ student.name }} </h2>
 
+<p>Back to <a href="/members">Members</a></p>
 {% endblock %}

@@ -1,14 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
-
-
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from random import choice
 import datetime
-from .models import *
+# from academy_project.company_core.models import *
+from ..models import *
 
 # def home_page(request):
 #     return HttpResponse("Hello world!")
@@ -61,7 +57,24 @@ def members(request):
   mymembers = Member.objects.all().values()     #object.all -> zadame o vsechny objekty, ktere jsou v databazi online
   template = loader.get_template('members.html')    #members.html -> nazev templatu
   context = {
-    'mymembers': mymembers,
+      'mymembers': mymembers,
+  }
+  return HttpResponse(template.render(context, request))
+
+
+def details(request, id):
+  mymember = Member.objects.get(id=id)
+  template = loader.get_template('detail.html')
+
+  students = mymember.student_set.all()
+
+  student = None
+  if students:
+      student = students[0]
+
+  context = {
+    'mymember': mymember,
+    "student": student
   }
   return HttpResponse(template.render(context, request))
 
@@ -75,10 +88,38 @@ def phones(request):
   return HttpResponse(template.render(context, request))
 
 
-def details(request):
-  mymembers = Member.objects.get(id=id)
-  template = loader.get_template('detail.html')
-  context = {
-    'detail': detail,
-  }
-  return HttpResponse(template.render(context, request))
+
+def adress_view(request, city, street):
+    # http://127.0.0.1:8000/country/hlavni/0
+    cities = {"hlavni": "Praha",
+              "mensi": "Brno"}
+
+    streets = ["prvni", "druha", "treti"]
+
+    my_city = cities.get(city)
+    my_street = streets[street]
+
+    template = loader.get_template('adress.html')
+    context = {
+        'city_name': my_city,
+        "street": my_street
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def adress_view2(request, city, street):
+    # http://127.0.0.1:8000/country/?city=hlavni&street=0
+    cities = {"hlavni": "Praha",
+              "mensi": "Brno"}
+
+    streets = ["prvni", "druha", "treti"]
+
+    my_city = cities.get(request.GET["city"])
+    my_street = streets[int(request.GET["street"])]
+
+    template = loader.get_template('adress.html')
+    context = {
+        'city_name': my_city,
+        "street": my_street
+    }
+    return HttpResponse(template.render(context, request))

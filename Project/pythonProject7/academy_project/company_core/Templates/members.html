@@ -3,11 +3,13 @@
 {% block content %}
 <h1>Members</h1>
 
-<ul>
+<ul>                  <!--ul - oznaceni seznamu, li list item radek seznamu, a href hypertextovy odkaz-->
   {% for member in mymembers %}
-  <a href="details/{{ member.id}} "> </a>
-<!--    <li>{{ member.firstname }} {{ member.lastname }}</li>-->
+  <li><a href="details/{{ member.id }}">{{ member.firstname }} {{ member.lastname }}</a></li>
+<!--    <li>{{ member.firstname }} {{ member.lastname }}</li> neproklikavaci odkaz href-->
   {% endfor %}
+
+
 </ul>
 
 {% endblock %}

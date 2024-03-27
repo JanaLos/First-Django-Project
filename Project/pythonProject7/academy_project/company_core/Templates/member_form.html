@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+    <title>Member form</title>
+{% endblock %}
+
+
+
+{% block content %}
+<h1>Memberform </h1>
+<br>                            <!--br je enter-->
+
+<form method="post">
+    {% csrf_token %}            <!--bezpecnostni token-->
+    {{ form.as_p}}              <!-- as_p je to jako paragraf <p> -> je to context z froms_views.py-->
+    <button type ='submit'>Odeslat</button>
+</form>
+
+{% endblock %}
