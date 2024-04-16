@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Review
+from .forms import ReviewForm
 
-# Create your views here.
+def reviews(request):
+    context = {
+        "reviews": Review.objects.all(),
+        "form": ReviewForm()
+    }
+    return render(request, "reviews.html", context)

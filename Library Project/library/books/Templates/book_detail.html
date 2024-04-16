@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Kniha
+{% endblock %}
+
+{% block content %}
+<h1>{{ book.name }}</h1>
+<br>
+<h2>Autory</h2>
+{% for author in authors %}
+    <h3>{{ author.first_name }} {{ author.last_name }}</h3>
+{% endfor %}
+<br>
+<h2>Kategorie</h2>
+{% for c in categories %}
+    <h5>{{ c.name }}</h5>
+{% endfor %}
+<br>
+<h2>Popisok</h2>
+<p>{{ book.description }}</p>
+
+<br>
+{% endblock %}

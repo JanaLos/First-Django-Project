@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Author
+{% endblock %}
+
+{% block content %}
+<h1>{{ author.first_name }} {{ author.last_name }}</h1>
+<br>
+<h2>Knihy</h2>
+{% for book in books %}
+<a href="{% url 'book_detail' id=book.pk %}"><h3>{{ book.name }}</h3></a>
+
+{% endfor %}
+<br>
+<br>
+{% endblock %}

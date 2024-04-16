@@ -1,0 +1,19 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Kategorie
+{% endblock %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+<br>
+<h2>Knihy</h2>
+{% for book in books %}
+    <h5>{{ book.name }}</h5>
+{% endfor %}
+<br>
+<h2>Popisok</h2>
+<p>{{ category.description }}</p>
+
+<br>
+{% endblock %}

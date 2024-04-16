@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Kategorie
+{% endblock %}
+
+{% block content %}
+<h1>Kategorie</h1>
+<br>
+<ul>
+    {% for obj in object_list %}
+    <li>
+        <a href="{% url 'category_detail' id=obj.pk %}"><h3>{{ obj.name }}</h3></a>
+        <br>
+    {{ obj.description }}</li>
+
+    <hr/>
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
+<br>
+{% endblock %}
+
+
+{% if is_paginated %}
+  <div class="pagination">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; prva</a>
+        <a href="?page={{ page_obj.previous_page_number }}">predošla</a>
+      {% endif %}
+
+      <span class="current">
+        Stránka {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">dalsia</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">posledna &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
+{% endif %}
